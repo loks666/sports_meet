@@ -20,3 +20,22 @@ rad.json
 *.flf
 #Test results file
 TestResults.xml
+.backend
+build/
+.idea/
+target
+node_modules
+
+.DS_Store
+node_modules/
+/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
