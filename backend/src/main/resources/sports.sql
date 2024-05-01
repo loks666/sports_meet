@@ -4,7 +4,7 @@
  Source Server         : bysj
  Source Server Type    : MySQL
  Source Server Version : 80024
- Source Host           : localhost:3306
+ Source Host           : mysql:3306
  Source Schema         : bysj
 
  Target Server Type    : MySQL
@@ -15,7 +15,7 @@
 */
 DROP DATABASE IF EXISTS sports;
 CREATE DATABASE sports CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-
+USE sports;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
@@ -409,13 +409,13 @@ VALUES ('201813003002', 'e10adc3949ba59abbe56e057f20f883e', '测试2', 1, '15077
         NULL);
 INSERT INTO `users`
 VALUES ('201813004001', '25d55ad283aa400af464c76d713c07ad', '华强', 1, '15077716800', '传媒学院',
-        '059c6da4-f54c-44bb-84b9-f101714a92b6.png', '714152865@qq.com');
+        '059c6da4-f54c-44bb-84b9-f101714a92b6.png', '284190056@qq.com');
 INSERT INTO `users`
 VALUES ('201813005201', 'e10adc3949ba59abbe56e057f20f883e', '强子', 0, '15077716863', '理工学院',
         'b17a86c1-b25d-448d-9463-89f1af614c1a.jpg', NULL);
 INSERT INTO `users`
 VALUES ('201813005202', 'fcea920f7412b5da7be0cf42b8c93759', '王老虎', 0, '15077716862', '经济与管理学院',
-        'default.jpg', '714152865@qq.com');
+        'default.jpg', '284190056@qq.com');
 INSERT INTO `users`
 VALUES ('201813005203', 'e10adc3949ba59abbe56e057f20f883e', '强子啊', 1, '15077716867', '马克思学院', 'default.jpg',
         NULL);
@@ -458,7 +458,7 @@ INSERT INTO `users`
 VALUES ('201813007206', 'e10adc3949ba59abbe56e057f20f883e', '打底袜', 0, '15077716872', '艺术与设计学院',
         'default.jpg', NULL);
 INSERT INTO `users`
-VALUES ('admin', 'fcea920f7412b5da7be0cf42b8c93759', 'admin', 0, '18507773465', '理工学院',
-        '000a4044-9be5-43f1-b45b-0b5634fa1929.png', '714152865@qq.com');
+VALUES ('admin', 'e10adc3949ba59abbe56e057f20f883e', 'admin', 0, '16621370084', '理工学院',
+        '000a4044-9be5-43f1-b45b-0b5634fa1929.png', '284190056@qq.com');
 
 SET FOREIGN_KEY_CHECKS = 1;

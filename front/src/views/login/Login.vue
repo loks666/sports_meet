@@ -117,7 +117,7 @@ export default {
     login() {
       let inputCode = this.switch(this.codetext)
       let codeValue = this.switch(this.code)
-      if (inputCode === codeValue) {
+      if (inputCode == codeValue) {
         window.sessionStorage.setItem('upd', this.usersPwd)
         LoginAPI({
           params: {

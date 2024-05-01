@@ -74,7 +74,7 @@ public class AuthCodeController {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setSubject("【运动会报名系统】");
             message.setText("用户 " + usersStnumber + "正在重置密码，验证码为：" + EmailCode + "。请勿将验证码告知他人");
-//        message.setFrom("714152865@qq.com");
+//        message.setFrom("284190056@qq.com");
             message.setFrom(from);
             message.setTo(usersEmail);
             mailSender.send(message);
