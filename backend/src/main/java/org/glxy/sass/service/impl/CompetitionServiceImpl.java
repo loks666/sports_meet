@@ -7,6 +7,8 @@ import org.glxy.sass.entity.Competition;
 import org.glxy.sass.entity.Enroll;
 import org.glxy.sass.mapper.CompetitionMapper;
 import org.glxy.sass.service.CompetitionService;
+import org.glxy.sass.service.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -55,6 +57,9 @@ public class CompetitionServiceImpl extends ServiceImpl<CompetitionMapper, Compe
         return competitionMapper.selectByEnroll();
     }
 
+    @Autowired
+    private TaskService taskService;
+
     /**
      * 比赛新增（新）
      *
@@ -63,6 +68,8 @@ public class CompetitionServiceImpl extends ServiceImpl<CompetitionMapper, Compe
     @Override
     public void addCompetition(Competition competition) {
         competitionMapper.addCompetition(competition);
+        String endTime = competition.getApplyEnd();
+        taskService.scheduleTask(endTime,competition.getCompetitionNb());
     }
 
     /**

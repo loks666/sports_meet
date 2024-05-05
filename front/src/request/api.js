@@ -1,5 +1,5 @@
 import request from "./request";
-
+import axios from "axios";
 //登陆页面
 //登陆方法
 export const LoginAPI = (params) => request.get('/login/doLogin', params);
@@ -132,7 +132,6 @@ export const UdeleteListAPI = (params) => request.delete('/users/deleteUsers', p
 //导入信息
 export const UimportAPI = (params) => request.post('/users/upload', params);
 
-
 //比赛页面
 //请求列表
 export const MgetLisetAPI = (params) => request.get('/competition/search', params);
@@ -157,9 +156,37 @@ export const CdeleteAPI = (competitionNb) => request.delete('/competition/delete
   }
 });
 
-//获取比赛地点（字典）
 export const CselectSiteAPI = (params) => request.get('/site/selectSite', params);
 
+//分组页面
+//请求列表
+export const GgetLisetAPI = (params) => request.get('/group/search', params);
+
+//条件查询
+export const GselectAll = (params) => request.get('/group/select', params);
+
+//新增
+// export const GinsertAPI = (params) => request.post('/group/insert', params);
+export const GinsertAPI = (params) => {
+  return request.post('/group/insert', params, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+}
+//修改
+export const GupdateAPI = (params) => request({
+  url: '/group/update',
+  method: 'put',
+  params: params
+});
+
+//删除
+export const GdeleteAPI = (groupId) => request.delete('/group/delete', {
+  params: {
+    groupId
+  }
+});
 
 //用户报名比赛项目页面
 //用户报名

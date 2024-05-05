@@ -42,6 +42,7 @@
         <el-menu-item index="/manage">比赛项目管理</el-menu-item>
         <el-menu-item index="/enroll">比赛报名管理</el-menu-item>
         <el-menu-item index="/site">比赛场地管理</el-menu-item>
+        <el-menu-item index="/group">比赛分组管理</el-menu-item>
       </el-submenu>
 
       <el-submenu v-if="this.role === 'admin'|| this.role === 'superAdmin'" index="4">

@@ -91,8 +91,8 @@ public class CompetitionController {
      */
     @PostMapping("/insertCompetition")
     public Result<?> insert(@RequestBody Competition competition) {
-        Competition competitionN = competitionMapper.selectOne(Wrappers.<Competition>lambdaQuery().eq(Competition::getCompetitionNb, competition.getCompetitionNb()));
-        if (competitionN != null) {
+        Competition old = competitionService.getById(competition.getCompetitionNb());
+        if (old != null) {
             return Result.error("-1", "比赛编号已存在");
         } else {
             Competition icompetition = new Competition();
@@ -161,7 +161,7 @@ public class CompetitionController {
      * @param competitionNb
      */
     @GetMapping("/updateCompetition")
-    public Result<?> insertCompetition(@RequestParam String usersStnumber, @RequestParam String competitionNb) {
+    public Result<?> updateCompetition(@RequestParam String usersStnumber, @RequestParam String competitionNb) {
         String map = String.valueOf(applicationformService.selectFrom(usersStnumber, competitionNb)); //查询用户报名列表是否有重复，有则不为空
         String sexMap = String.valueOf(competitionService.selectCompetitionSex(competitionNb));  //判断比赛是否为男
         String girlMap = String.valueOf(competitionService.selectCompetitionSexGirl(competitionNb)); //判断比赛是否为女

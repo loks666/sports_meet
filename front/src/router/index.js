@@ -51,6 +51,12 @@ export default new Router({
           name: 'Site',
           component: () => import("@/views/site/Site"),
         },
+        //比赛分组管理
+        {
+          path: 'group',
+          name: 'Group',
+          component: () => import("@/views/group/Group"),
+        },
         //学院管理
         {
           path: 'college',

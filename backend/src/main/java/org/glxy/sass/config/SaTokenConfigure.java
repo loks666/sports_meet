@@ -21,6 +21,7 @@ public class SaTokenConfigure implements WebMvcConfigurer {
                     // 登录认证 -- 拦截所有路由，并排除/user/doLogin 用于开放登录
                     SaRouter.match("/**", "/login/doLogin", r -> StpUtil.checkLogin());
                     // 角色认证 -- 拦截路由
+
                     //用户类
                     SaRouter.match("/users/search", r -> StpUtil.checkRoleOr("admin", "superAdmin"));
                     //SaRouter.match("/users/selectBySn", r -> StpUtil.checkRoleOr("admin","superAdmin"));
@@ -48,6 +49,12 @@ public class SaTokenConfigure implements WebMvcConfigurer {
                     SaRouter.match("/enroll/getlist", r -> StpUtil.checkRoleOr("admin", "superAdmin", "user"));
                     SaRouter.match("/enroll/updateCompetition", r -> StpUtil.checkRoleOr("admin", "superAdmin", "user"));
 
+                    //分组
+                    SaRouter.match("/group/search", r -> StpUtil.checkRoleOr("admin", "superAdmin"));
+                    SaRouter.match("/group/select", r -> StpUtil.checkRoleOr("admin", "superAdmin"));
+                    SaRouter.match("/group/insert", r -> StpUtil.checkRoleOr("admin", "superAdmin", "user"));
+                    SaRouter.match("/group/update", r -> StpUtil.checkRoleOr("admin", "superAdmin"));
+
                     //场地
                     SaRouter.match("/site/search", r -> StpUtil.checkRoleOr("admin", "superAdmin"));
                     SaRouter.match("/site/insertSite", r -> StpUtil.checkRoleOr("admin", "superAdmin"));
@@ -74,7 +81,8 @@ public class SaTokenConfigure implements WebMvcConfigurer {
                         //验证码路径
                         "/authCode/**",
                         //邮箱验证码路径
-                        "/login/getEmail"
+                        "/login/getEmail",
+                        "/swagger-resources/**", "/swagger-ui.html", "/v2/api-docs", "/webjars/**"
                 );
     }
 
