@@ -27,10 +27,6 @@ public class GroupController {
     public Result<?> search(
             @RequestParam(defaultValue = "1") Integer pageNum,
             @RequestParam(defaultValue = "10") Integer pageSize) {
-//        LambdaQueryWrapper<Group> wrapper = Wrappers.lambdaQuery();
-//        if (StrUtil.isNotBlank(search)) {
-//            wrapper.like(Group::getCompetitionNe, search);
-//        }
         return Result.success(groupService.page(new Page<>(pageNum, pageSize)));
     }
 
